@@ -1,0 +1,210 @@
+/* Black and white dropdown section styles */
+.swot-section {
+  margin: 1.5rem 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #222;
+  padding: 0;
+}
+.swot-section[open] {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+.swot-heading {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111;
+  padding: 1.1rem 1.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  border-radius: 12px 12px 0 0;
+  outline: none;
+}
+.swot-content {
+  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+  color: #222;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+}
+.swot-bw {
+  border: 1px solid #222 !important;
+  background: #fff !important;
+  color: #111 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+/* SwotEducation.css - Simple, modern, responsive styles for the SWOT Education component */
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #f3f4f6;
+}
+
+.swot-education {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.swot-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.swot-intro h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.swot-intro p {
+  color: #444;
+  margin: 0.3rem 0;
+}
+
+.swot-grid-section {
+  margin: 2rem 0;
+}
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+@media (max-width: 600px) {
+  .swot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Card style for all cards */
+.swot-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+  outline: none;
+}
+.swot-card:hover, .swot-card:focus {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.swot-card h2 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.2rem;
+}
+.swot-def {
+  font-size: 0.98rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+.swot-card ul {
+  margin: 0 0 0.5rem 1.1rem;
+  padding: 0;
+  font-size: 0.97rem;
+}
+.swot-card li {
+  margin-bottom: 0.2rem;
+}
+.swot-green { border-left: 6px solid #22c55e; }
+.swot-red { border-left: 6px solid #ef4444; }
+.swot-blue { border-left: 6px solid #3b82f6; }
+.swot-orange { border-left: 6px solid #f59e42; }
+.swot-card.expanded {
+  background: #eef6ff;
+}
+.swot-more {
+  margin-top: 0.7rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.swot-internal-external {
+  margin: 2rem 0 1.5rem 0;
+  text-align: center;
+}
+.swot-internal-external table {
+  margin: 0.7rem auto 0 auto;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+.swot-internal-external td {
+  border: 1px solid #e5e7eb;
+  padding: 0.4rem 1.2rem;
+}
+
+.swot-example {
+  margin: 2rem 0 1.5rem 0;
+}
+.swot-example-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.98rem;
+}
+@media (max-width: 600px) {
+  .swot-example-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.swot-howto {
+  margin: 2rem 0 1.5rem 0;
+}
+.swot-howto ul {
+  margin: 0.5rem 0 0 1.2rem;
+  padding: 0;
+}
+.swot-howto li {
+  margin-bottom: 0.2rem;
+}
+
+.swot-quiz {
+  margin: 2rem 0 1.5rem 0;
+  text-align: center;
+}
+.swot-quiz-options {
+  margin: 0.7rem 0;
+}
+.swot-quiz-options button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: #e0e7ff;
+  color: #222;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.swot-quiz-options button.selected, .swot-quiz-options button:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+.swot-quiz-answer {
+  margin-top: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.swot-next-btn-wrap {
+  text-align: center;
+  margin: 2.5rem 0 0 0;
+}
+.swot-next-btn {
+  background: #22c55e;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.8rem 2.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s;
+}
+.swot-next-btn:hover, .swot-next-btn:focus {
+  background: #16a34a;
+  transform: scale(1.04);
+}
