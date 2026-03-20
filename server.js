@@ -1,15 +1,15 @@
-// server.js - Express server setup for Vite + API
+// server.js - Express server setup with Ollama LLM (no API key required)
 
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const OpenAI = require('openai');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// Ollama runs locally on port 11434
+const OLLAMA_API_URL = 'http://localhost:11434/api/generate';
 
 app.post('/api/generate-report', async (req, res) => {
   console.log('Incoming:', req.body);
@@ -23,21 +23,54 @@ app.post('/api/generate-report', async (req, res) => {
   const oArr = Array.isArray(opportunities) ? opportunities : (typeof opportunities === 'string' ? opportunities.split(',').map(s => s.trim()).filter(Boolean) : []);
   const tArr = Array.isArray(threats) ? threats : (typeof threats === 'string' ? threats.split(',').map(s => s.trim()).filter(Boolean) : []);
 
-  const prompt = `You are a business strategy assistant.\n\nProblem: ${problem}\nGoal: ${goal}\n\nStrengths: ${sArr.join(", ")}\nWeaknesses: ${wArr.join(", ")}\nOpportunities: ${oArr.join(", ")}\nThreats: ${tArr.join(", ")}\n\nWrite:\n1. Problem summary\n2. 3 insights\n3. Action steps grouped into:\n- Strengths + Opportunities\n- Weaknesses + Opportunities\n- Strengths + Threats\n- Weaknesses + Threats\n\nKeep it clear and concise.\n`;
+  const prompt = `You are a business strategy assistant.
+
+Problem: ${problem}
+Goal: ${goal}
+
+Strengths: ${sArr.join(", ")}
+Weaknesses: ${wArr.join(", ")}
+Opportunities: ${oArr.join(", ")}
+Threats: ${tArr.join(", ")}
+
+Write:
+1. Problem summary
+2. 3 key insights
+3. Action steps grouped into:
+- Strengths + Opportunities
+- Weaknesses + Opportunities
+- Strengths + Threats
+- Weaknesses + Threats
+
+Keep it clear and concise.`;
+
   try {
-    const completion = await client.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [{ role: 'user', content: prompt }],
+    console.log('Sending request to Ollama...');
+    const response = await fetch(OLLAMA_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'mistral',
+        prompt: prompt,
+        stream: false,
+      }),
     });
-    const report = completion.choices[0].message.content;
-    console.log('Report:', report);
+
+    if (!response.ok) {
+      throw new Error(`Ollama error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const report = data.response;
+    console.log('Report generated:', report.substring(0, 100) + '...');
     res.json({ report });
   } catch (err) {
-    console.error(err.response?.data || err.message);
-    res.status(500).json({ error: 'Failed to generate report.' });
+    console.error('Error:', err.message);
+    res.status(500).json({ error: 'Failed to generate report. Make sure Ollama is running: ollama serve' });
   }
 });
 
 app.listen(5000, () => {
   console.log('Server running on port 5000');
+  console.log('Waiting for Ollama on http://localhost:11434');
 });

@@ -1,210 +1,341 @@
-/* Black and white dropdown section styles */
-.swot-section {
-  margin: 1.5rem 0;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  border: 1px solid #222;
-  padding: 0;
-}
-.swot-section[open] {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-}
-.swot-heading {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #111;
-  padding: 1.1rem 1.5rem;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
-  background: #fff;
-  border-radius: 12px 12px 0 0;
-  outline: none;
-}
-.swot-content {
-  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
-  color: #222;
-  background: #fff;
-  border-radius: 0 0 12px 12px;
-}
-.swot-bw {
-  border: 1px solid #222 !important;
-  background: #fff !important;
-  color: #111 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-/* SwotEducation.css - Simple, modern, responsive styles for the SWOT Education component */
+/* SwotEducation.css - Modern gradient-based design with glassmorphic effects */
 
+/* GLOBAL DESIGN */
 body {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background: #f3f4f6;
+  background: linear-gradient(135deg, #7da2b8, #c7d2d9);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
+html {
+  background: linear-gradient(135deg, #7da2b8, #c7d2d9);
+}
+
+/* MAIN CONTAINER */
 .swot-education {
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 2rem;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
 
-.swot-intro {
-  text-align: center;
-  margin-bottom: 2rem;
+/* INTRO SECTION - PREMIUM CARD */
+.swot-education > .swot-section:first-child {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 2.5rem;
 }
-.swot-intro h1 {
+
+.swot-education > .swot-section:first-child .swot-heading {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-.swot-intro p {
-  color: #444;
-  margin: 0.3rem 0;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #1f2937;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
 }
 
-.swot-grid-section {
-  margin: 2rem 0;
+.swot-education > .swot-section:first-child .swot-content {
+  padding: 0 !important;
+  color: #374151;
+  background: transparent !important;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
+
+/* SWOT GRID CARDS */
+.swot-grid-section {
+  margin: 2.5rem 0;
+}
+
 .swot-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
-@media (max-width: 600px) {
+
+@media (max-width: 700px) {
   .swot-grid {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 }
-/* Card style for all cards */
+
+/* SWOT CARDS WITH COLOR ACCENTS */
 .swot-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.15s, box-shadow 0.15s;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
   cursor: pointer;
   outline: none;
+  border: none;
+  border-left: 6px solid #999;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
-.swot-card:hover, .swot-card:focus {
-  transform: scale(1.04);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+
+.swot-card:hover,
+.swot-card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
-.swot-card h2 {
-  margin: 0 0 0.3rem 0;
+
+/* COLOR ACCENTS FOR SWOT TYPES */
+.swot-card.swot-green {
+  border-left: 6px solid #22c55e;
+}
+
+.swot-card.swot-red {
+  border-left: 6px solid #ef4444;
+}
+
+.swot-card.swot-blue {
+  border-left: 6px solid #3b82f6;
+}
+
+.swot-card.swot-orange {
+  border-left: 6px solid #f59e42;
+}
+
+/* Add glow effect on hover */
+.swot-card.swot-green:hover {
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.15);
+}
+
+.swot-card.swot-red:hover {
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.15);
+}
+
+.swot-card.swot-blue:hover {
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+}
+
+.swot-card.swot-orange:hover {
+  box-shadow: 0 8px 20px rgba(245, 158, 66, 0.15);
+}
+
+.swot-card .swot-heading {
+  font-weight: 600;
   font-size: 1.2rem;
-}
-.swot-def {
-  font-size: 0.98rem;
-  color: #555;
+  color: #1f2937;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
   margin-bottom: 0.5rem;
+  cursor: default;
 }
+
+.swot-def {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 0.8rem;
+  font-style: italic;
+}
+
 .swot-card ul {
-  margin: 0 0 0.5rem 1.1rem;
+  margin: 0.5rem 0 0 1.2rem;
   padding: 0;
   font-size: 0.97rem;
+  color: #374151;
 }
+
 .swot-card li {
-  margin-bottom: 0.2rem;
-}
-.swot-green { border-left: 6px solid #22c55e; }
-.swot-red { border-left: 6px solid #ef4444; }
-.swot-blue { border-left: 6px solid #3b82f6; }
-.swot-orange { border-left: 6px solid #f59e42; }
-.swot-card.expanded {
-  background: #eef6ff;
-}
-.swot-more {
-  margin-top: 0.7rem;
-  color: #666;
-  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
 }
 
-.swot-internal-external {
-  margin: 2rem 0 1.5rem 0;
-  text-align: center;
+/* SECTION CARDS (ACCORDIONS) */
+.swot-section {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
 }
-.swot-internal-external table {
-  margin: 0.7rem auto 0 auto;
+
+.swot-section[open] {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.swot-section .swot-heading {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1f2937;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  border: none !important;
+  background: transparent !important;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.swot-section .swot-heading:hover {
+  color: #3b82f6;
+}
+
+.swot-section .swot-content {
+  padding: 0.8rem 0 0 0;
+  color: #374151;
+  background: transparent !important;
+  font-size: 0.975rem;
+  line-height: 1.6;
+}
+
+.swot-section table {
+  width: 100%;
+  margin-top: 0.8rem;
   border-collapse: collapse;
-  font-size: 0.98rem;
-}
-.swot-internal-external td {
-  border: 1px solid #e5e7eb;
-  padding: 0.4rem 1.2rem;
+  font-size: 0.95rem;
+  color: #1f2937;
 }
 
-.swot-example {
-  margin: 2rem 0 1.5rem 0;
+.swot-section td {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.6rem 1rem;
+  text-align: left;
 }
+
+.swot-section td:first-child {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+/* EXAMPLE GRID */
 .swot-example-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.7rem;
-  background: #f3f4f6;
-  border-radius: 8px;
+  gap: 0.8rem;
+  background: rgba(243, 244, 246, 0.6);
+  border-radius: 10px;
   padding: 1rem;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+  color: #374151;
 }
-@media (max-width: 600px) {
+
+@media (max-width: 700px) {
   .swot-example-grid {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
   }
 }
 
-.swot-howto {
-  margin: 2rem 0 1.5rem 0;
-}
-.swot-howto ul {
-  margin: 0.5rem 0 0 1.2rem;
-  padding: 0;
-}
-.swot-howto li {
-  margin-bottom: 0.2rem;
+.swot-example-grid div {
+  line-height: 1.5;
 }
 
-.swot-quiz {
-  margin: 2rem 0 1.5rem 0;
-  text-align: center;
-}
+/* QUIZ SECTION */
 .swot-quiz-options {
-  margin: 0.7rem 0;
-}
-.swot-quiz-options button {
-  margin: 0 0.5rem;
-  padding: 0.5rem 1.2rem;
-  border: none;
-  border-radius: 6px;
-  background: #e0e7ff;
-  color: #222;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.swot-quiz-options button.selected, .swot-quiz-options button:hover {
-  background: #3b82f6;
-  color: #fff;
-}
-.swot-quiz-answer {
-  margin-top: 0.6rem;
-  font-size: 1.05rem;
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
 }
 
-.swot-next-btn-wrap {
-  text-align: center;
-  margin: 2.5rem 0 0 0;
-}
-.swot-next-btn {
-  background: #22c55e;
-  color: #fff;
-  font-size: 1.1rem;
-  padding: 0.8rem 2.2rem;
+.swot-quiz-options button {
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 8px;
+  background: rgba(229, 231, 235, 0.7);
+  color: #1f2937;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background 0.15s, transform 0.12s;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
-.swot-next-btn:hover, .swot-next-btn:focus {
-  background: #16a34a;
-  transform: scale(1.04);
+
+.swot-quiz-options button:hover {
+  background: rgba(59, 130, 246, 0.2);
+  transform: scale(1.02);
+}
+
+.swot-quiz-options button.selected {
+  background: #3b82f6;
+  color: white;
+}
+
+.swot-quiz-answer {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #22c55e;
+  padding: 0.6rem;
+  background: rgba(34, 197, 94, 0.1);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* BUTTON */
+.swot-next-btn-wrap {
+  text-align: center;
+  margin: 3rem 0 1rem 0;
+}
+
+.swot-next-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border-radius: 10px;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+.swot-next-btn:hover,
+.swot-next-btn:focus {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35);
+}
+
+.swot-next-btn:active {
+  transform: scale(0.98);
+}
+
+/* UTILITY CLASSES */
+.swot-bw {
+  border: none !important;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 700px) {
+  .swot-education {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .swot-education > .swot-section:first-child {
+    padding: 1.5rem !important;
+    font-size: 0.95rem;
+  }
+
+  .swot-education > .swot-section:first-child .swot-heading {
+    font-size: 1.5rem;
+  }
+
+  .swot-grid {
+    gap: 1rem;
+  }
+
+  .swot-card {
+    padding: 1rem;
+  }
 }

@@ -48,9 +48,9 @@ const swotData = [
   },
 ];
 
-function SwotCard({ title, definition, examples }) {
+function SwotCard({ title, definition, examples, colorClass }) {
   return (
-    <details className="swot-card swot-bw">
+    <details className={`swot-card swot-bw ${colorClass}`}>
       <summary className="swot-heading">{title}</summary>
       <div className="swot-content">
         <p className="swot-def">{definition}</p>
@@ -65,6 +65,13 @@ function SwotCard({ title, definition, examples }) {
 }
 
 function SwotGrid() {
+  const colorMap = {
+    green: 'swot-green',
+    red: 'swot-red',
+    blue: 'swot-blue',
+    orange: 'swot-orange',
+  };
+
   return (
     <section className="swot-grid-section">
       <div className="swot-grid">
@@ -74,6 +81,7 @@ function SwotGrid() {
             title={card.title}
             definition={card.definition}
             examples={card.examples}
+            colorClass={colorMap[card.color]}
           />
         ))}
       </div>
