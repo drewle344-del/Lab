@@ -7,7 +7,7 @@ export default function SwotReport({ swotData, onRestart }) {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/generate-report", {
+    fetch("/api/generate-report", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(swotData),

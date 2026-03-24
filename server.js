@@ -50,7 +50,7 @@ Keep it clear and concise.`;
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'mistral',
+        model: 'phi',
         prompt: prompt,
         stream: false,
       }),
